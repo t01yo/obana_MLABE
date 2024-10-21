@@ -1,0 +1,96 @@
+/* Reset and basic styling */
+body {
+    font-family: 'Eurostile', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f2; /* Light beige */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: #800000; /* Maroon */
+    color: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.name-and-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    padding: 8px;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 5px; /* Add margin between buttons */
+}
+
+nav button {
+    background-color: #c21313; /* Lighter maroon */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    border: 2px solid rgb(184, 7, 7);
+    box-shadow: 0 2px 8px rgba(15, 15, 15, 0.093); /* Box shadow */
+}
+
+nav button:hover {
+    background-color: #6b2929; /* Darker maroon for hover effect */
+}
+
+nav button:focus {
+    outline: none;
+}
+   /* Header Styles (header.css) */
+
+h1 {
+    border: 2px solid #800000; /* Maroon border */
+    padding: 10px 20px; /* Padding inside the border */
+    border-radius: 5px; /* Rounded corners for the border */
+    box-shadow: 0 2px 8px rgba(239, 239, 239, 0.551); /* Box shadow */
+    color: white; /* Maroon text color */
+    text-align: center; /* Center text alignment */
+    margin-bottom: 20px; /* Margin below the heading */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+}
+
