@@ -30,9 +30,11 @@ body {
 /* Container and Heading */
 .container {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Reduced width for smaller container */
+    margin: 0 auto; /* Center align */
 }
 
 h2 {
@@ -203,24 +205,6 @@ h2 {
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="#">MidTerm Lab Exam</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="customers.php"><i class="fas fa-users"></i> Customers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.php"><i class="fas fa-box"></i> Products</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     
 <div class="container py-2">
 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -246,8 +230,8 @@ h2 {
                 <td><?php echo $row['city']; ?></td>
                 <td><?php echo $row['country']; ?></td>
                 <td>
-                    <button class="btn btn-primary btn-sm view-orders-btn" data-id="<?php echo $row['customerID']; ?>" data-name="<?php echo htmlspecialchars($row['customername']); ?>">
-                        <i class="fas fa-eye"></i> View Orders
+                    <button class="btn btn-outlinr-primary btn-sm view-orders-btn" data-id="<?php echo $row['customerID']; ?>" data-name="<?php echo htmlspecialchars($row['customername']); ?>">
+                        <i class="fas fa-shopping-cart"></i> 
                     </button>
                 </td> 
             </tr>
@@ -347,7 +331,7 @@ $(document).ready(function() {
                     response.forEach(function(order) {
                         var quantity = parseInt(order.quantity);
                         var price = parseFloat(order.price);
-                        var total = parseFloat(order.total_price);
+                        var total = quantity * price;
 
                         totalQuantity += quantity;
                         totalPrice += total;
@@ -357,11 +341,15 @@ $(document).ready(function() {
                             <td>${order.orderdate}</td>
                             <td>${order.productname}</td>
                             <td>${quantity}</td>
-                            <td>₱${price.toFixed(2)}</td>
-                            <td>₱${total.toFixed(2)}</td>
+                            <td>Php${price.toFixed(2)}</td>
+                            <td>Php ${total.toFixed(2)}</td>
                         </tr>`;
                         tbody.append(row);
                     });
+
+                    // Update totals
+                    $('#totalQuantity').text(totalQuantity);
+                    $('#totalPrice').text(totalPrice.toFixed(2));
                 } else {
                     tbody.append('<tr><td colspan="6" class="text-center">No orders found for this customer.</td></tr>');
                 }
